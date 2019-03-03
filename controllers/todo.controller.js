@@ -35,7 +35,7 @@ exports.updateTodo = function(req, res){
             res.send('Error getting the todo!');
         else {
             if(err){
-                tatus(400).send("Error when updating the todo");
+                status(400).send("Error when updating the todo");
             }else{
                 todo.name = req.body.name;
                 todo.save().then( todo => {
@@ -47,7 +47,7 @@ exports.updateTodo = function(req, res){
 }
 
 exports.deleteTodo = function(req, res){
-    Todo.findByIdAndDelete({_id: req.params.id}, (err, todo) => {
+    Todo.findByIdAndDelete({_id: req.params.id}, (err) => {
         if(err) res.json(err);
         else res.json('Todo successfully removed');
     } )
